@@ -1,0 +1,30 @@
+package encodeImage;
+
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.imageio.ImageIO;
+
+public class CheckImage
+{
+	public CheckImage(String path)
+	{
+		try
+		{
+			File picture = new File(path);
+			BufferedImage bufferedImage = ImageIO.read(picture);
+			WritableRaster raster = bufferedImage.getRaster();
+			DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
+			System.out.println(data.getData());
+		}
+		catch(Exception e)
+		{
+			ErrorGUI error = new ErrorGUI("  File path could not be found.  ");
+		}
+	}
+}

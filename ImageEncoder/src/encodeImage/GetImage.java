@@ -46,7 +46,7 @@ public class GetImage extends JFrame
 				System.exit(99);
 			else
 			{
-			    
+			    	CheckImage run = new CheckImage(text.getText());
 			}
 		}
 	}
