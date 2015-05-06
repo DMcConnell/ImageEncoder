@@ -9,30 +9,41 @@ import java.awt.event.*;
 public class GetImage extends JFrame
 {
 	JButton run, exit;
-	JTextArea text;
+	JTextArea imagePath, folderPath;
 	
 	public GetImage()
 	{
 		event listener = new event();
 		
-		JPanel main, flow;
-		JLabel expla;
+		JPanel main, flow, top, middle;
+		JLabel expla1, expla2;
 		
 		main = new JPanel();
 		main.setLayout(new BorderLayout());
 		flow = new JPanel();
 		flow.setLayout(new FlowLayout());
-		expla = new JLabel("    Designate File Path To The Image:    ", SwingConstants.CENTER);
+		top = new JPanel();
+		top.setLayout(new BorderLayout());
+		middle = new JPanel();
+		middle.setLayout(new BorderLayout());
+		expla1 = new JLabel("    Designate File Path To The Image:    ", SwingConstants.CENTER);
+		expla2 = new JLabel("    Designate File Path for Folder:    ", SwingConstants.CENTER);
 		run = new JButton("Run");
 		exit = new JButton("Exit");
-		text = new JTextArea();
-		text.setBorder(LineBorder.createGrayLineBorder());
+		imagePath = new JTextArea();
+		imagePath.setBorder(LineBorder.createGrayLineBorder());
+		folderPath = new JTextArea();
+		folderPath.setBorder(LineBorder.createGrayLineBorder());
 		run.addActionListener(listener);
 		exit.addActionListener(listener);
-		main.add(expla, BorderLayout.NORTH);
-		main.add(text, BorderLayout.CENTER);
+		top.add(expla1, BorderLayout.NORTH);
+		top.add(imagePath, BorderLayout.CENTER);
+		middle.add(expla2, BorderLayout.NORTH);
+		middle.add(folderPath, BorderLayout.CENTER);
 		flow.add(run);
 		flow.add(exit);
+		main.add(top, BorderLayout.NORTH);
+		main.add(middle, BorderLayout.CENTER);
 		main.add(flow, BorderLayout.SOUTH);
 		add(main);
 	}
@@ -46,7 +57,7 @@ public class GetImage extends JFrame
 				System.exit(99);
 			else
 			{
-			    	CheckImage run = new CheckImage(text.getText());
+			    	StoreImage run = new StoreImage(imagePath.getText());
 			}
 		}
 	}

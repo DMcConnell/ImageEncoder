@@ -30,6 +30,7 @@ public class StoreImage
 					counter++;
 				}
 			}
+			System.out.println("Here");
 			new File(folderPath + "\\ImageEncryption").mkdir();
 			File writeTo = new File(folderPath + "\\ImageEncryption\\text.txt");
 			System.out.println("FIRST HALF WORKED");

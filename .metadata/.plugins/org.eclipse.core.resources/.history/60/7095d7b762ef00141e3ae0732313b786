@@ -12,11 +12,11 @@ import javax.swing.JFrame;
 
 public class StoreImage
 {
-	public StoreImage(String imagePath, String folderPath)
+	public StoreImage(String path)
 	{
 		try
 		{
-			File picture = new File(imagePath);
+			File picture = new File(path);
 			BufferedImage bufferedImage = ImageIO.read(picture);
 			int width = bufferedImage.getWidth();
 			int height = bufferedImage.getHeight();
@@ -30,16 +30,18 @@ public class StoreImage
 					counter++;
 				}
 			}
-			new File(folderPath + "\\ImageEncryption").mkdir();
-			File writeTo = new File(folderPath + "\\ImageEncryption\\text.txt");
+			new File("C:\\users\\duncanmcconnell\\desktop\\ImageEncryption").mkdir();
+			File writeTo = new File("C:\\users\\duncanmcconnell\\desktop\\ImageEncryption\\text.txt");
 			System.out.println("FIRST HALF WORKED");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(writeTo));
-			for(int i = 0; i < rgbValues.length; i++)
-			{
-				writer.write(Integer.toString(rgbValues[i]));
-				writer.newLine();
-			}
-			writer.flush();
+			String maybe = "No WAY THIS WORKS";
+			writer.write(maybe);
+			//for(int i = 0; i < rgbValues.length; i++)
+			//{
+				//writer.write(rgbValues[0]);
+				//writer.write("a");
+				//writer.newLine();
+			//}
 /*HOw TO WRITE THE RGB VALUES TO A NEW IMAGE
 BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 img.getRaster().setDataElements(0, 0, width, height, rgbValues);

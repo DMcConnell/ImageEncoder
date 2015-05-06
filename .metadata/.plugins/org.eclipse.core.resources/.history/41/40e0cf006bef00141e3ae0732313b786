@@ -12,11 +12,11 @@ import javax.swing.JFrame;
 
 public class StoreImage
 {
-	public StoreImage(String imagePath, String folderPath)
+	public StoreImage(String path)
 	{
 		try
 		{
-			File picture = new File(imagePath);
+			File picture = new File(path);
 			BufferedImage bufferedImage = ImageIO.read(picture);
 			int width = bufferedImage.getWidth();
 			int height = bufferedImage.getHeight();
@@ -30,13 +30,13 @@ public class StoreImage
 					counter++;
 				}
 			}
-			new File(folderPath + "\\ImageEncryption").mkdir();
-			File writeTo = new File(folderPath + "\\ImageEncryption\\text.txt");
+			new File("C:\\users\\duncanmcconnell\\desktop\\ImageEncryption").mkdir();
+			File writeTo = new File("C:\\users\\duncanmcconnell\\desktop\\ImageEncryption\\text.txt");
 			System.out.println("FIRST HALF WORKED");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(writeTo));
 			for(int i = 0; i < rgbValues.length; i++)
 			{
-				writer.write(Integer.toString(rgbValues[i]));
+				writer.write("WHAT THE FUCK MAN");
 				writer.newLine();
 			}
 			writer.flush();

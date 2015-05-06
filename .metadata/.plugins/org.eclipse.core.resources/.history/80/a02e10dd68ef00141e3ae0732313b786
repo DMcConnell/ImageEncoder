@@ -3,16 +3,16 @@ package encodeImage;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-public class CheckImage
+public class StoreImage
 {
-	public CheckImage(String path)
+	public StoreImage(String path)
 	{
 		try
 		{
@@ -20,13 +20,33 @@ public class CheckImage
 			BufferedImage bufferedImage = ImageIO.read(picture);
 			int width = bufferedImage.getWidth();
 			int height = bufferedImage.getHeight();
-			for(int i = 0; i < width; i++)
+			int[] rgbValues = new int[width * height];
+			int counter = 0;
+			for(int i = 0; i < height; i++)
 			{
-				for(int j = 0; j < height; j++)
+				for(int j = 0; j < width; j++)
 				{
-					System.out.println(bufferedImage.getRGB(i,j));
+					rgbValues[counter] = bufferedImage.getRGB(j,i);
+					counter++;
 				}
 			}
+			new File("C:\\users\\duncanmcconnell\\desktop\\ImageEncryption").mkdir();
+			File writeTo = new File("C:\\users\\duncanmcconnell\\desktop\\ImageEncryption\\text.txt");
+			System.out.println("FIRST HALF WORKED");
+			BufferedWriter writer = new BufferedWriter(new FileWriter(writeTo));
+			for(int i = 0; i < rgbValues.length; i++)
+			{
+				writer.write("WHAT THE FUCK MAN");
+				//writer.newLine();
+			}
+			writer.flush();
+/*HOw TO WRITE THE RGB VALUES TO A NEW IMAGE
+BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+img.getRaster().setDataElements(0, 0, width, height, rgbValues);
+File outputfile = new File("C:\\Users\\duncanmcconnell\\desktop\\image.jpg");
+ImageIO.write(bufferedImage, "jpg", outputfile);
+*/
+			System.out.println("IT WORKED");
 		}
 		catch(Exception e)
 		{

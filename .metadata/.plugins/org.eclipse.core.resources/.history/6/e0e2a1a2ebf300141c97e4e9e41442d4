@@ -46,7 +46,7 @@ public class GetImage extends JFrame
 				System.exit(99);
 			else
 			{
-			    	
+			    	StoreImage run = new StoreImage(text.getText());
 			}
 		}
 	}
