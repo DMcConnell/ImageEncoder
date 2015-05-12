@@ -80,6 +80,6 @@ public class GetImage extends JFrame
 	    }
 	    GUI.setLocation((screenSize.width - frameSize.width) / 2 - 115,
                 (screenSize.height - frameSize.height) / 2 - 104);
-		GUI.setSize(300,144);
+		GUI.setSize(300,186);
 	}
 }
